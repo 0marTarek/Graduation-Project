@@ -113,3 +113,5 @@ https://veet.via.cornell.edu/cgi-bin/datac/home.cgi
 The database currently consists of an image set of 50 low-dose documented whole-lung CT scans for detection. The CT scans were obtained 
 
 in a single breath hold with a 1.25 mm slice thickness. The locations of nodules detected by the radiologist are also provided.
+
+https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI
