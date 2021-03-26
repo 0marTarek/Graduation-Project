@@ -7,7 +7,7 @@ path = input("Enter Patient path:")
 
 text_files = glob.glob(path + "/**/*.dcm", recursive = True)
 
-print(type(text_files))
+print(text_files)
 
 list_to_copy= []
 
@@ -20,26 +20,31 @@ def search (name, category):
         else:
             pass
     if counter>0:
-        if category == 'A':
-            os.rename( list_to_copy[0],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\A\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
-        elif category == 'B':
-            os.rename( list_to_copy[0],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\B\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
-        elif category == 'E':
-            os.rename( list_to_copy[0],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\E\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
-        elif category == 'G':
-            os.rename(list_to_copy[0],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\G\\' +  str(category) + str(randint(0, 1000000091)) + ".dcm")    
-
+        try:
+            if category == 'A':
+                shutil.copy( list_to_copy[0],  'F:\\categories\\A\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
+            elif category == 'B':
+                shutil.copy( list_to_copy[0],  'F:\\categories\\B\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
+            elif category == 'D':
+                shutil.copy( list_to_copy[0],  'F:\\categories\\D\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
+            elif category == 'G':
+                shutil.copy(list_to_copy[0],   'F:\\categories\\G\\' +  str(category) + str(randint(0, 1000000091)) + ".dcm")    
+        except :
+            print('catech entered')
 
     if counter > 1 :
-        if category == 'A':
-            os.rename( list_to_copy[1],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\A\\' + str(category) + str(randint(0, 1000000091)) + ".dcm" )
-        elif category == 'B':
-            os.rename( list_to_copy[1],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\B\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
-        elif category == 'E':
-            os.rename( list_to_copy[1],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\E\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
-        elif category == 'G':
-            os.rename(list_to_copy[1],  'C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\\Desktop\\output\\G\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")    
-
+        try:
+                
+            if category == 'A':
+                shutil.copy( list_to_copy[1],  'F:\\categories\\A\\' + str(category) + str(randint(0, 1000000091)) + ".dcm" )
+            elif category == 'B':
+                shutil.copy( list_to_copy[1],  'F:\\categories\\B\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
+            elif category == 'D':
+                shutil.copy( list_to_copy[1],  'F:\\categories\\D\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
+            elif category == 'G':
+                shutil.copy(list_to_copy[1],   'F:\\categories\\G\\' + str(category) + str(randint(0, 1000000091)) + ".dcm")
+        except e:
+            print('catech entered')
 
 
 def read(path):
@@ -55,4 +60,4 @@ def read(path):
 
 search("1-02.dcm", 'A')
 print(list_to_copy)
-read('C:\\Users\\Omar-ElQady\\OneDrive - Faculty of Computers and Information\Desktop\\VisualizationTools\\ImagesTitle.txt')
+read('C:\\Users\\ESLAM\\Downloads\\New folder (3)\\VisualizationTools\\ImagesTitle.txt')
