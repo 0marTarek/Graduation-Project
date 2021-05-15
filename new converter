@@ -1,8 +1,8 @@
 import numpy as np
 import png, os, pydicom
 
-source_folder = r'C:\Users\Omar-ElQady\OneDrive - Faculty of Computers and Information\Desktop\q\\'
-output_folder = r'C:\Users\Omar-ElQady\OneDrive - Faculty of Computers and Information\Desktop\o\\'
+source_folder = r'C:\Users\Omar-ElQady\OneDrive - Faculty of Computers and Information\Desktop\dcm\\'
+output_folder = r'C:\Users\Omar-ElQady\OneDrive - Faculty of Computers and Information\Desktop\jpg\\'
 
 
 def dicom2png(source_folder, output_folder):
@@ -16,7 +16,8 @@ def dicom2png(source_folder, output_folder):
             image_2d = ds.pixel_array.astype(float)
 
             # Rescaling grey scale between 0-255
-            image_2d_scaled = (np.maximum(image_2d,0) / image_2d.max()) * 255.0
+            threshold = 500
+            image_2d_scaled = (np.maximum(image_2d,0) / image_2d.max()+ threshold) * 255.0
 
             # Convert to uint
             image_2d_scaled = np.uint8(image_2d_scaled)
